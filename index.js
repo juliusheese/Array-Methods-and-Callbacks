@@ -25,11 +25,11 @@ task1();
 (d) Away Team goals for 2014 world cup final
 (e) Winner of 2014 world cup final */
 
-console.log(fifaData[828]["Home Team Name"])
-console.log(fifaData[828]["Away Team Goals"])
-console.log(fifaData[828]["Away Team Name"])
-console.log(fifaData[828]["Home Team Goals"])
-console.log(fifaData[828]["Win conditions"])
+console.log(fifaData[828]["Home Team Name"]);
+console.log(fifaData[828]["Away Team Goals"]);
+console.log(fifaData[828]["Away Team Name"]);
+console.log(fifaData[828]["Home Team Goals"]);
+console.log(fifaData[828]["Win conditions"]);
 
 
 /*
@@ -110,25 +110,32 @@ if(fifaData[i].year === 2014) {console.log(fifaData[i]);}
 
 
 
-function getFinals(data) {
-    const finalsData = fifaData.filter((Stage) => {
-        return Stage === "Final";
-      });
-      return finalsData;
+function getFinals(fifaData) {
+    const arr = [];
+    for (let i = 0; i < fifaData.length; i++) {
+        if (fifaData[i]["Stage"] === "Final") {
+            arr.push(fifaData[i])
+        }
     }
+    return arr;
+}
 console.log(getFinals(fifaData));
-   
+
 
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
-function getYears(/* code here */) {
-
-    /* code here */
-
-};
-
-getYears();
+function getYears(cb) {
+    let arr1 = [];
+    for (let i = 0; i < cb.length; i++) {
+        if (Number.isInteger(getFinals(cb))) {
+            arr1.push(arr1[i])
+        }
+    }
+    return arr1;
+}
+console.log(Number.isInteger(fifaData));
+console.log(getYears(fifaData));
 
 /* Task 5: Implement a higher-order function called `getWinners`, that accepts the callback function `getFinals()` and determine the winner (home or away) of each `finals` game. Return the name of all winning countries in an array called `winners` */
 
